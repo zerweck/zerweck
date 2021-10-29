@@ -1,0 +1,389 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "Procurement-SK R3 API",
+        "description": "Procurement-SK R3 API Description",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.energizedanalytics.com/procurement-skr3"
+        }
+    ],
+    "paths": {
+        "/CategorizePurchasingData": {
+            "post": {
+                "tags": [
+                    "Procurement"
+                ],
+                "summary": "CategorizePurchasingData",
+                "description": "Returns the predicted category and its probability",
+                "operationId": "CategorizePurchasingData",
+                "requestBody": {
+                    "description": "The request object (see model and schema for details)...",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
+                            },
+                            "example": {
+                                "orderId": "1000977088",
+                                "orderPos": 1,
+                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
+                                "costCenterId": "0000906007",
+                                "accountingArea": "0020",
+                                "additionalFields": [
+                                    {
+                                        "structureName": "AUFTRAGSNUMMER",
+                                        "valuePart": null
+                                    },
+                                    {
+                                        "structureName": "BESTELLWERT_POS",
+                                        "valuePart": "1060.00"
+                                    },
+                                    {
+                                        "structureName": "CURRENCY",
+                                        "valuePart": "EUR"
+                                    },
+                                    {
+                                        "structureName": "LIEFERANTEN_NR",
+                                        "valuePart": "0000010356"
+                                    },
+                                    {
+                                        "structureName": "EINKAUFSBEREICH",
+                                        "valuePart": "06"
+                                    }
+                                ]
+                            }
+                        },
+                        "text/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
+                            },
+                            "example": {
+                                "orderId": "1000977088",
+                                "orderPos": 1,
+                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
+                                "costCenterId": "0000906007",
+                                "accountingArea": "0020",
+                                "additionalFields": [
+                                    {
+                                        "structureName": "AUFTRAGSNUMMER",
+                                        "valuePart": null
+                                    },
+                                    {
+                                        "structureName": "BESTELLWERT_POS",
+                                        "valuePart": "1060.00"
+                                    },
+                                    {
+                                        "structureName": "CURRENCY",
+                                        "valuePart": "EUR"
+                                    },
+                                    {
+                                        "structureName": "LIEFERANTEN_NR",
+                                        "valuePart": "0000010356"
+                                    },
+                                    {
+                                        "structureName": "EINKAUFSBEREICH",
+                                        "valuePart": "06"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/*+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
+                            },
+                            "example": {
+                                "orderId": "1000977088",
+                                "orderPos": 1,
+                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
+                                "costCenterId": "0000906007",
+                                "accountingArea": "0020",
+                                "additionalFields": [
+                                    {
+                                        "structureName": "AUFTRAGSNUMMER",
+                                        "valuePart": null
+                                    },
+                                    {
+                                        "structureName": "BESTELLWERT_POS",
+                                        "valuePart": "1060.00"
+                                    },
+                                    {
+                                        "structureName": "CURRENCY",
+                                        "valuePart": "EUR"
+                                    },
+                                    {
+                                        "structureName": "LIEFERANTEN_NR",
+                                        "valuePart": "0000010356"
+                                    },
+                                    {
+                                        "structureName": "EINKAUFSBEREICH",
+                                        "valuePart": "06"
+                                    }
+                                ]
+                            }
+                        },
+                        "application/json-patch+json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
+                            },
+                            "example": {
+                                "orderId": "1000977088",
+                                "orderPos": 1,
+                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
+                                "costCenterId": "0000906007",
+                                "accountingArea": "0020",
+                                "additionalFields": [
+                                    {
+                                        "structureName": "AUFTRAGSNUMMER",
+                                        "valuePart": null
+                                    },
+                                    {
+                                        "structureName": "BESTELLWERT_POS",
+                                        "valuePart": "1060.00"
+                                    },
+                                    {
+                                        "structureName": "CURRENCY",
+                                        "valuePart": "EUR"
+                                    },
+                                    {
+                                        "structureName": "LIEFERANTEN_NR",
+                                        "valuePart": "0000010356"
+                                    },
+                                    {
+                                        "structureName": "EINKAUFSBEREICH",
+                                        "valuePart": "06"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/CategorizePurchasingDataResponse"
+                                },
+                                "example": {
+                                    "warengruppe": "Möbel",
+                                    "warengruppeProbability": 0.92,
+                                    "sachkonto": "12345",
+                                    "sachkontoProbability": 0.94
+                                }
+                            }
+                        }
+                    },
+                    "204": {
+                        "description": "Success"
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "example": {
+                                    "errorCode": 123456,
+                                    "errorMessage": "The request is invalid.",
+                                    "isNonRecoverableError": true
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/UnauthorizedResponse"
+                                },
+                                "example": {
+                                    "statusCode": 401,
+                                    "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription."
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Server Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ErrorResponse"
+                                },
+                                "example": {
+                                    "errorCode": 123456,
+                                    "errorMessage": "Some unexpected error occurred. Please contact the Sandy support.",
+                                    "isNonRecoverableError": true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "AdditionalField": {
+                "required": [
+                    "structureName"
+                ],
+                "type": "object",
+                "properties": {
+                    "structureName": {
+                        "type": "string",
+                        "description": "The name of the field"
+                    },
+                    "valuePart": {
+                        "type": "string",
+                        "description": "The value of the field",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": "A key value pair to represent additional fields"
+            },
+            "CategorizePurchasingDataRequest": {
+                "required": [
+                    "accountingArea",
+                    "orderDescriptionShort",
+                    "orderId",
+                    "orderPos"
+                ],
+                "type": "object",
+                "properties": {
+                    "orderId": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Order ID (BW Name: 'BE_isoliert')"
+                    },
+                    "orderPos": {
+                        "type": "integer",
+                        "description": "Orderposition (BW Name: 'BE-Pos')",
+                        "format": "int32"
+                    },
+                    "orderDescriptionShort": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Short version of order description (BW Name: 'BE-Pos Text')"
+                    },
+                    "costCenterId": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Cost center ID (EKKN Name: Kostenstelle)",
+                        "nullable": true
+                    },
+                    "accountingArea": {
+                        "minLength": 1,
+                        "type": "string",
+                        "description": "Accounting Area ID (EKKN Name: Buchungskreis)"
+                    },
+                    "additionalFields": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/AdditionalField"
+                        },
+                        "description": "A list of key value pairs (string, string) to represent additional values",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false,
+                "description": ""
+            },
+            "CategorizePurchasingDataResponse": {
+                "required": [
+                    "sachkonto",
+                    "sachkontoProbability",
+                    "warengruppe",
+                    "warengruppeProbability"
+                ],
+                "type": "object",
+                "properties": {
+                    "warengruppe": {
+                        "type": "string",
+                        "description": "Predicted category group ID (SAP: eClass) or \"NOT_FOUND\" if no prediction could be made"
+                    },
+                    "warengruppeProbability": {
+                        "type": "number",
+                        "description": "Prediction probability of category group",
+                        "format": "double"
+                    },
+                    "sachkonto": {
+                        "type": "string",
+                        "description": "Predicted general ledger account (SAP: Sachkonto) or \"599999\" if no prediction could be made"
+                    },
+                    "sachkontoProbability": {
+                        "type": "number",
+                        "description": "Prediction probability of general ledger account",
+                        "format": "double"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ErrorResponse": {
+                "required": [
+                    "errorCode",
+                    "errorMessage",
+                    "isNonRecoverableError"
+                ],
+                "type": "object",
+                "properties": {
+                    "errorCode": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "errorMessage": {
+                        "type": "string"
+                    },
+                    "isNonRecoverableError": {
+                        "type": "boolean"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "UnauthorizedResponse": {
+                "required": [
+                    "message",
+                    "statusCode"
+                ],
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "additionalProperties": false
+            }
+        },
+        "securitySchemes": {
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header"
+            },
+            "apiKeyQuery": {
+                "type": "apiKey",
+                "name": "subscription-key",
+                "in": "query"
+            }
+        }
+    },
+    "security": [
+        {
+            "apiKeyHeader": []
+        },
+        {
+            "apiKeyQuery": []
+        }
+    ]
+}
