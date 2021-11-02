@@ -1,13 +1,13 @@
 {
     "openapi": "3.0.1",
     "info": {
-        "title": "Procurement-SK R3 API",
-        "description": "Procurement-SK R3 API Description",
+        "title": "Procurement-SK S4 API",
+        "description": "Procurement-SK S4 API Description",
         "version": "1.0"
     },
     "servers": [
         {
-            "url": "https://api.energizedanalytics.com/procurement-skr3"
+            "url": "https://api.energizedanalytics.com/procurement-sks4"
         }
     ],
     "paths": {
@@ -27,19 +27,18 @@
                                 "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
                             },
                             "example": {
-                                "orderId": "1000977088",
+                                "orderId": "123",
                                 "orderPos": 1,
-                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
-                                "costCenterId": "0000906007",
-                                "accountingArea": "0020",
+                                "orderDescriptionShort": "Laserdrucker OKI C824n",
+                                "accountingArea": "1010",
                                 "additionalFields": [
                                     {
                                         "structureName": "AUFTRAGSNUMMER",
-                                        "valuePart": null
+                                        "valuePart": "Ix09"
                                     },
                                     {
                                         "structureName": "BESTELLWERT_POS",
-                                        "valuePart": "1060.00"
+                                        "valuePart": "99.7"
                                     },
                                     {
                                         "structureName": "CURRENCY",
@@ -47,113 +46,23 @@
                                     },
                                     {
                                         "structureName": "LIEFERANTEN_NR",
-                                        "valuePart": "0000010356"
+                                        "valuePart": "5041495"
                                     },
                                     {
-                                        "structureName": "EINKAUFSBEREICH",
-                                        "valuePart": "06"
-                                    }
-                                ]
-                            }
-                        },
-                        "text/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
-                            },
-                            "example": {
-                                "orderId": "1000977088",
-                                "orderPos": 1,
-                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
-                                "costCenterId": "0000906007",
-                                "accountingArea": "0020",
-                                "additionalFields": [
-                                    {
-                                        "structureName": "AUFTRAGSNUMMER",
-                                        "valuePart": null
+                                        "structureName": "MENGE",
+                                        "valuePart": "1"
                                     },
                                     {
-                                        "structureName": "BESTELLWERT_POS",
-                                        "valuePart": "1060.00"
+                                        "structureName": "MENGENEINHEIT",
+                                        "valuePart": "Stueck"
                                     },
                                     {
-                                        "structureName": "CURRENCY",
-                                        "valuePart": "EUR"
+                                        "structureName": "MATKL",
+                                        "valuePart": "19140101"
                                     },
                                     {
-                                        "structureName": "LIEFERANTEN_NR",
-                                        "valuePart": "0000010356"
-                                    },
-                                    {
-                                        "structureName": "EINKAUFSBEREICH",
-                                        "valuePart": "06"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/*+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
-                            },
-                            "example": {
-                                "orderId": "1000977088",
-                                "orderPos": 1,
-                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
-                                "costCenterId": "0000906007",
-                                "accountingArea": "0020",
-                                "additionalFields": [
-                                    {
-                                        "structureName": "AUFTRAGSNUMMER",
-                                        "valuePart": null
-                                    },
-                                    {
-                                        "structureName": "BESTELLWERT_POS",
-                                        "valuePart": "1060.00"
-                                    },
-                                    {
-                                        "structureName": "CURRENCY",
-                                        "valuePart": "EUR"
-                                    },
-                                    {
-                                        "structureName": "LIEFERANTEN_NR",
-                                        "valuePart": "0000010356"
-                                    },
-                                    {
-                                        "structureName": "EINKAUFSBEREICH",
-                                        "valuePart": "06"
-                                    }
-                                ]
-                            }
-                        },
-                        "application/json-patch+json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/CategorizePurchasingDataRequest"
-                            },
-                            "example": {
-                                "orderId": "1000977088",
-                                "orderPos": 1,
-                                "orderDescriptionShort": "Business Analyst, SAP, Senior",
-                                "costCenterId": "0000906007",
-                                "accountingArea": "0020",
-                                "additionalFields": [
-                                    {
-                                        "structureName": "AUFTRAGSNUMMER",
-                                        "valuePart": null
-                                    },
-                                    {
-                                        "structureName": "BESTELLWERT_POS",
-                                        "valuePart": "1060.00"
-                                    },
-                                    {
-                                        "structureName": "CURRENCY",
-                                        "valuePart": "EUR"
-                                    },
-                                    {
-                                        "structureName": "LIEFERANTEN_NR",
-                                        "valuePart": "0000010356"
-                                    },
-                                    {
-                                        "structureName": "EINKAUFSBEREICH",
-                                        "valuePart": "06"
+                                        "structureName": "SEGMENT",
+                                        "valuePart": "1000"
                                     }
                                 ]
                             }
@@ -169,8 +78,6 @@
                                     "$ref": "#/components/schemas/CategorizePurchasingDataResponse"
                                 },
                                 "example": {
-                                    "warengruppe": "Möbel",
-                                    "warengruppeProbability": 0.92,
                                     "sachkonto": "12345",
                                     "sachkontoProbability": 0.94
                                 }
@@ -299,21 +206,10 @@
             "CategorizePurchasingDataResponse": {
                 "required": [
                     "sachkonto",
-                    "sachkontoProbability",
-                    "warengruppe",
-                    "warengruppeProbability"
+                    "sachkontoProbability"
                 ],
                 "type": "object",
                 "properties": {
-                    "warengruppe": {
-                        "type": "string",
-                        "description": "Predicted category group ID (SAP: eClass) or \"NOT_FOUND\" if no prediction could be made"
-                    },
-                    "warengruppeProbability": {
-                        "type": "number",
-                        "description": "Prediction probability of category group",
-                        "format": "double"
-                    },
                     "sachkonto": {
                         "type": "string",
                         "description": "Predicted general ledger account (SAP: Sachkonto) or \"599999\" if no prediction could be made"
